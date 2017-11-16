@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const keys = require('./config/keys'); // locally hidden and protected data
 
 require('./models/user'); // created users collection constructor locally
+require('./models/Surveys');
 require('./services/passport'); // sets up how our passport works
 
 //const authRoutes = require('./routes/authRoutes');
@@ -38,6 +39,7 @@ app.use(passport.session());
 // sets routes for app
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 if (process.env.NODE_ENV == 'production') {
   // Express will serve up production assets
